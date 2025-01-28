@@ -32,7 +32,7 @@ model_score = model.score(x_test,y_test)    #score%
 
 # model_score = model.predict_proba(x_test) #負け・勝ち率の計算
 
-print(model_score)    #表示
+#print(model_score)    #表示
 
 
 # PartialDependenceDisplay.from_estimator(
