@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
-import tensorflow as tf
-import tensorflow_decision_forests as tfdf
+# import tensorflow as tf
+# import tensorflow_decision_forests as tfdf
 
 #kaggle tutorial titanic
 #go linux
