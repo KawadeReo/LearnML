@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AI駆動自動化システム プロトタイプ</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #output { border: 1px solid #ccc; padding: 10px; margin-top: 10px; min-height: 100px; }
+    </style>
+</head>
+<body>
+    <h1>AI駆動自動化システム プロトタイプ</h1>
+    <p>下の入力欄にコマンドを入力してください。（例：「Flask検索: チュートリアル」）</p>
+    <input type="text" id="commandInput" style="width: 80%;" placeholder="コマンドを入力">
+    <button id="sendBtn">送信</button>
+
+    <h2>実行結果</h2>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById("sendBtn").addEventListener("click", function(){
+            const command = document.getElementById("commandInput").value;
+            fetch("/process", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ command: command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = data.result;
+            });
+        });
+    </script>
+</body>
+</html>
